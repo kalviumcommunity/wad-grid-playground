@@ -1,0 +1,52 @@
+/* ============================================================
+   GRID PLAYGROUND - a tiny sandbox to feel how Grid works.
+   Change ONE value, save, and watch the six tiles rearrange.
+   Try these, one at a time:
+     1. Columns:  change repeat(3, 1fr) to repeat(2, 1fr) or
+        repeat(4, 1fr). More or fewer columns, same markup.
+     2. Gap:      change gap to 4px, then 24px.
+     3. Auto-fit: replace the columns line with
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        then make the window narrow and wide.
+     4. Span:     uncomment the .feature rules to make tile 1
+        cover two columns and two rows.
+   ============================================================ */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: system-ui, sans-serif;
+  color: #334155;
+  background: #f8fafc;
+}
+h1 { font-size: 1.4rem; margin: 0 0 4px; }
+p  { margin: 0 0 16px; color: #64748b; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);   /* <-- change the count */
+  gap: 12px;                               /* <-- change the spacing */
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  min-height: 90px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #5457c4;
+  background: #eff1fe;
+  border: 1px solid #d8deea;
+  border-radius: 10px;
+}
+
+.feature {
+  background: #f0fbf6;
+  color: #2e7d5b;
+  /* Uncomment to make tile 1 span two columns and two rows:
+  grid-column: 1 / 3;
+  grid-row: 1 / span 2;
+  */
+}
